@@ -6,4 +6,7 @@ require 'routes.php';
 
 $uri = $_GET['uri'] ?? '';
 
-require $router->parse($uri);
+$route = $router->parse($uri);
+$title = $route->getName();
+$bodyController = $route->getController();
+require 'app/Views/index.view.php';

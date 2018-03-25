@@ -2,6 +2,9 @@
 
 $router = new Router();
 
+$table = new Route('app/Controllers/TableController.php', 'Tickets');
+
 $router->define([
-    '' => 'app/Controllers/WelcomeController.php'
+    '' => $table,
+    'tickets' => $table
 ]);
