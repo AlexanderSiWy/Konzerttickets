@@ -6,5 +6,6 @@ $table = new Route('app/Controllers/TicketsController.php', 'Tickets');
 
 $router->define([
     '' => $table,
-    'tickets' => $table
+    'tickets' => $table,
+    'InsertPerson' => new Route('app/Controllers/InsertPersonController.php', 'Person Hinzufügen')
 ]);
