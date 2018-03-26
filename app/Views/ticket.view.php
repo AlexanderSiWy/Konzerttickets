@@ -2,7 +2,7 @@
     <fieldset>
         <legend>Personalien</legend>
         <div>
-            <label for="person">Name</label>
+            <label for="person">Person</label>
         </div>
         <div>
             <select id="person" name="<?=$personId->getName()?>" required">
@@ -10,7 +10,8 @@
                 <option value="<?=$person->getId()?>" <?= $person->getId() == $personId->getValue() ? 'selected' : ''?>><?=$person->getName()?></option>
             <?php endforeach; ?>
             </select>
-            <a href="InsertPerson">Neu</a> | <a href="UpdatePerson">Bearbeiten</a>
+            <input type="button" value="+" onclick="newPerson();" />
+            <input type="button" value="Bearbeiten" onclick="editPerson();" />
             <p><?= $personId->getMessage() ?></p>
         </div>
         <div>
