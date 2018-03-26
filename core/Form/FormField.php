@@ -6,7 +6,7 @@
  * Time: 10:38
  */
 
-class FormField
+class FormField implements JsonSerializable
 {
     private $name;
     private $value = '';
@@ -164,5 +164,17 @@ class FormField
     public function setMessage(string $message): void
     {
         $this->message = $message;
+    }
+
+    /**
+     * Specify data which should be serialized to JSON
+     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     * @since 5.4.0
+     */
+    public function jsonSerialize()
+    {
+        return ["name" => $this->name, "valid"=>$this->valid, "message"=>$this->message];
     }
 }

@@ -4,11 +4,13 @@ class Route
 {
     private $controller;
     private $name;
+    private $standalone;
 
-    public function __construct( $controller, $name = '')
+    public function __construct( $controller, $name = '', $standalone = false)
     {
         $this->controller = $controller;
         $this->name = $name;
+        $this->standalone = $standalone;
     }
 
     public function getUri()
@@ -39,5 +41,21 @@ class Route
     public function setName($name)
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isStandalone(): bool
+    {
+        return $this->standalone;
+    }
+
+    /**
+     * @param bool $standalone
+     */
+    public function setStandalone(bool $standalone): void
+    {
+        $this->standalone = $standalone;
     }
 }
