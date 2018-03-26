@@ -81,3 +81,4 @@
         </p>
     </div>
 </form>
+<script src="public/js/ticket.js"></script>
