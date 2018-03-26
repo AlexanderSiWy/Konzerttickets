@@ -1,4 +1,8 @@
 <?php
 $navItems = $router->routes;
-unset($navItems['']);
+foreach ($navItems as $key=>$value) {
+    if($value->getName() == '') {
+        unset($navItems[$key]);
+    }
+}
 require 'app/Views/menu.view.php';
