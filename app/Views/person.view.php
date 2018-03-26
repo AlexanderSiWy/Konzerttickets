@@ -1,4 +1,4 @@
-<form action="InsertPerson" method="post" >
+<form action="<?=$action?>" method="post" >
     <fieldset>
         <legend>Personalien</legend>
         <div>
@@ -25,6 +25,6 @@
     </fieldset>
     <div>
         <button type="reset">Zurücksetzen</button>
-        <button type="submit" >Hinzufügen</button>
+        <button type="submit" ><?=$submitValue?></button>
     </div>
 </form>

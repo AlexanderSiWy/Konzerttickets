@@ -14,6 +14,15 @@ class Person extends Entity
         $this->tel = $tel ?? $this->tel;
     }
 
+    public function insert() {
+        $pdo = connectToDatabase();
+        $statement = $pdo->prepare('INSERT INTO '.self::getTableName().' (name, mail, tel) VALUES (:name, :mail, :tel)');
+        $statement->bindParam(':name', $this->name);
+        $statement->bindParam(':mail', $this->mail);
+        $statement->bindParam(':tel', $this->tel);
+        $statement->execute();
+    }
+
     public static function getTableName()
     {
         return 'person';

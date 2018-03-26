@@ -12,6 +12,14 @@ class Treuebonus extends Entity
         $this->zahlungsfrist = $zahlungsfrist ?? $this->zahlungsfrist;
     }
 
+    public function insert() {
+        $pdo = connectToDatabase();
+        $statement = $pdo->prepare('INSERT INTO '.self::getTableName().' (rabatt, zahlungsfrist) VALUES (:rabatt, :zahlungsfrist)');
+        $statement->bindParam(':rabatt', $this->rabatt);
+        $statement->bindParam(':zahlungsfrist', $this->zahlungsfrist);
+        $statement->execute();
+    }
+
     public static function getTableName()
     {
         return 'treuebonus';

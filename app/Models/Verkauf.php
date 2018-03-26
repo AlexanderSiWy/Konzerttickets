@@ -18,6 +18,17 @@ class Verkauf extends Entity
         $this->datum = $datum ?? $this->datum;
     }
 
+    public function insert() {
+        $pdo = connectToDatabase();
+        $statement = $pdo->prepare('INSERT INTO '.self::getTableName().' (personId, konzertId, treuebonusId, zahlungsstatus, datum) VALUES (:personId, :konzertId, :treuebonusId, :zahlungsstatus, :datum)');
+        $statement->bindParam(':personId', $this->personId);
+        $statement->bindParam(':konzertId', $this->konzertId);
+        $statement->bindParam(':treuebonusId', $this->treuebonusId);
+        $statement->bindParam(':zahlungsstatus', $this->zahlungsstatus);
+        $statement->bindParam(':datum', $this->datum);
+        $statement->execute();
+    }
+
     public static function getTableName()
     {
         return 'verkauf';

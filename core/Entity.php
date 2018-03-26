@@ -29,6 +29,8 @@ abstract class Entity
         return static::fetchSingle($statement);
     }
 
+    public abstract function insert();
+
     public abstract function getId();
 
     public static abstract function getTableName();

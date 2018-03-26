@@ -10,6 +10,13 @@ class Konzert extends Entity
         $this->artist = $artist ?? $this->artist;
     }
 
+    public function insert() {
+        $pdo = connectToDatabase();
+        $statement = $pdo->prepare('INSERT INTO '.self::getTableName().' (artist) VALUES (:artist)');
+        $statement->bindParam(':artist', $this->artist);
+        $statement->execute();
+    }
+
     public static function getTableName()
     {
         return 'konzert';

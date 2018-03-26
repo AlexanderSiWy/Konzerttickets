@@ -7,8 +7,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $telefon->loadValue();
 
     if($name->validate() & $email->validate() & $telefon->validate()) {
-        header('Location: Success');
+        $person = new Person($name->getValue(), $email->getValue(), $telefon->getValue());
+        $person->insert();
+        header('Location: Personen');
         exit(0);
     }
 }
-require 'app/Views/insertperson.view.php';
+$action = 'InsertPerson';
+$submitValue = 'Hinzufügen';
+require 'app/Views/person.view.php';
