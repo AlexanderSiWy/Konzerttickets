@@ -1,2 +1,3 @@
 <?php
-var_dump(Person::findAll());
+$personen = Person::findAll();
+require 'app/Views/personen.view.php';
