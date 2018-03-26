@@ -5,9 +5,9 @@
             <label for="person">Person</label>
         </div>
         <div>
-            <select id="person" name="<?=$personId->getName()?>" required">
+            <select id="person" name="<?=$personId->getName()?>" onchange="setPersonInfo();" required">
             <?php foreach ($personen as $person):?>
-                <option value="<?=$person->getId()?>" <?= $person->getId() == $personId->getValue() ? 'selected' : ''?>><?=$person->getName()?></option>
+                <option value="<?=$person->getId()?>" data-email="<?=$person->getMail()?>" data-tel="<?=$person->getTel()?>"<?= $person->getId() == $personId->getValue() ? 'selected' : ''?>><?=$person->getName()?></option>
             <?php endforeach; ?>
             </select>
             <input type="button" value="+" onclick="newPerson();" />
@@ -46,9 +46,9 @@
             <label for="treuebonus">Treuebonus</label>
         </div>
         <div>
-            <select id="treuebonus" name="<?=$treuebonusId->getName()?>" required">
+            <select id="treuebonus" name="<?=$treuebonusId->getName()?>" onchange="setZahlbarBis();" required">
                 <?php foreach ($treueboni as $treuebonus):?>
-                    <option value="<?=$treuebonus->getId()?>" <?= $treuebonus->getId() == $treuebonusId->getValue() ? 'selected' : ''?>><?=$treuebonus->getDescription()?></option>
+                    <option value="<?=$treuebonus->getId()?>" data-zahlungsfrist="<?=$treuebonus->getZahlungsfrist()?>" <?= $treuebonus->getId() == $treuebonusId->getValue() ? 'selected' : ''?>><?=$treuebonus->getDescription()?></option>
                 <?php endforeach; ?>
             </select>
             <p><?= $treuebonusId->getMessage() ?></p>
