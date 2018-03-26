@@ -29,8 +29,8 @@ class FormField
     }
 
     public function validate() {
-        $notEmptyValidation = new Validation('\S', "Muss gefüllt sein");
-        if(!$this->match($notEmptyValidation)) {
+        $notEmptyValidation = new RegexValidation('\S', "Muss gefüllt sein");
+        if(!$notEmptyValidation->validate($this->value)) {
             if($this->isRequired()) {
                 $this->valid = false;
                 $this->message = $notEmptyValidation->getMessage();
@@ -42,7 +42,7 @@ class FormField
             }
         }
         foreach ($this->validations as $validation) {
-            if(!$this->match($validation)) {
+            if(!$validation->validate($this->value)) {
                 $this->valid = false;
                 $this->message = $validation->getMessage();
                 return false;
@@ -164,14 +164,5 @@ class FormField
     public function setMessage(string $message): void
     {
         $this->message = $message;
-    }
-
-    /**
-     * @param $validation
-     * @return false|int
-     */
-    public function match($validation)
-    {
-        return preg_match('/' . $validation->getRegex() . '/', $this->value);
     }
 }

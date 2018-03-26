@@ -24,8 +24,6 @@ if($id->validate()) {
             redirect();
         }
     }
-} else {
-    redirect();
 }
 $action = 'UpdatePerson?'.$id->getName().'='.$id->getValue();
 $submitValue = 'Speichern';

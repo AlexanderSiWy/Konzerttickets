@@ -2,40 +2,17 @@
 /**
  * Created by PhpStorm.
  * User: alexs
- * Date: 20.03.2018
- * Time: 13:20
+ * Date: 26.03.2018
+ * Time: 10:39
  */
 
-class Validation
+abstract class Validation
 {
-private $regex;
-private $message;
+    private $message;
 
-    /**
-     * Validation constructor.
-     * @param $regex
-     * @param $message
-     */
-    public function __construct($regex, $message)
+    public function __construct($message)
     {
-        $this->regex = $regex;
         $this->message = $message;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getRegex()
-    {
-        return $this->regex;
-    }
-
-    /**
-     * @param mixed $regex
-     */
-    public function setRegex($regex): void
-    {
-        $this->regex = $regex;
     }
 
     /**
@@ -53,4 +30,5 @@ private $message;
     {
         $this->message = $message;
     }
+    public abstract function validate($value);
 }

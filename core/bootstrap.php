@@ -12,6 +12,8 @@ require 'app/Models/Konzert.php';
 require 'app/Models/Treuebonus.php';
 require 'app/Models/Verkauf.php';
 
-require 'core/Form/FormField.php';
 require 'core/Form/Validation.php';
+require 'core/Form/FormField.php';
+require 'core/Form/RegexValidation.php';
+require 'core/Form/ExistsValidation.php';
 require 'core/Form/Validations.php';
