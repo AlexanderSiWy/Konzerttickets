@@ -75,4 +75,9 @@
         <button type="reset">Zurücksetzen</button>
         <button type="submit" ><?=$submitValue?></button>
     </div>
+    <div>
+        <p>
+            <?=$id->getMessage()?>
+        </p>
+    </div>
 </form>
