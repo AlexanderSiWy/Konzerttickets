@@ -1,4 +1,4 @@
-<form id="personForm" action="<?=$action?>" method="post" >
+<form id="personForm" data-validate="ValidatePerson" action="<?=$action?>" method="post" >
     <fieldset>
         <legend>Personalien</legend>
         <div>

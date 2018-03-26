@@ -1,4 +1,4 @@
-<form action="<?=$action?>" method="post" >
+<form action="<?=$action?>" data-validate="ValidateTicket" method="post" >
     <fieldset>
         <legend>Personalien</legend>
         <div>
@@ -12,7 +12,7 @@
             </select>
             <input type="button" value="+" onclick="newPerson();" />
             <input type="button" value="Bearbeiten" onclick="editPerson();" />
-            <p><?= $personId->getMessage() ?></p>
+            <p id="<?= $personId->getName() ?>Message"><?= $personId->getMessage() ?></p>
         </div>
         <div>
             <label for="email">E-Mail</label>
@@ -40,7 +40,7 @@
                 <option value="<?=$konzert->getId()?>" <?= $konzert->getId() == $konzertId->getValue() ? 'selected' : ''?>><?=$konzert->getArtist()?></option>
             <?php endforeach; ?>
             </select>
-            <p><?= $konzertId->getMessage() ?></p>
+            <p id="<?= $konzertId->getName() ?>Message"><?= $konzertId->getMessage() ?></p>
         </div>
         <div>
             <label for="treuebonus">Treuebonus</label>
@@ -51,7 +51,7 @@
                     <option value="<?=$treuebonus->getId()?>" data-zahlungsfrist="<?=$treuebonus->getZahlungsfrist()?>" <?= $treuebonus->getId() == $treuebonusId->getValue() ? 'selected' : ''?>><?=$treuebonus->getDescription()?></option>
                 <?php endforeach; ?>
             </select>
-            <p><?= $treuebonusId->getMessage() ?></p>
+            <p id="<?= $treuebonusId->getName() ?>Message"><?= $treuebonusId->getMessage() ?></p>
         </div>
         <div>
             <label for="zahlungsstatus">Zahlungsstatus</label>
@@ -61,7 +61,7 @@
                 <option value="0" <?= $zahlungsstatus->getValue() ? '' : 'selected'?>><?= Verkauf::zahlungsStatusDescription(false)?></option>
                 <option value="1" <?= $zahlungsstatus->getValue() ? 'selected' : ''?>><?= Verkauf::zahlungsStatusDescription(true)?></option>
             </select>
-            <p><?= $zahlungsstatus->getMessage() ?></p>
+            <p id="<?= $zahlungsstatus->getName() ?>Message"><?= $zahlungsstatus->getMessage() ?></p>
         </div>
         <div>
             <label for="zahlbarBis">Zahlbar bis</label>
@@ -76,9 +76,10 @@
         <button type="submit" ><?=$submitValue?></button>
     </div>
     <div>
-        <p>
+        <p id="<?= $id->getName() ?>Message">
             <?=$id->getMessage()?>
         </p>
     </div>
 </form>
 <script src="public/js/ticket.js"></script>
+<script src="public/js/validate.js"></script>
