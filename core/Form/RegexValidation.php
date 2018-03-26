@@ -39,11 +39,6 @@ private $regex;
 
     public function validate($value)
     {
-        return $this->match($value);
-    }
-
-    private function match($value)
-    {
         return preg_match('/' . $this->getRegex() . '/', $value);
     }
 }

@@ -6,7 +6,7 @@
         </div>
         <div>
             <select id="person" name="<?=$personId->getName()?>" required">
-            <?php foreach ($persone as $person):?>
+            <?php foreach ($personen as $person):?>
                 <option value="<?=$person->getId()?>" <?= $person->getId() == $personId->getValue() ? 'selected' : ''?>><?=$person->getName()?></option>
             <?php endforeach; ?>
             </select>

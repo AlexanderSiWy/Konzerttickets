@@ -18,10 +18,10 @@ if($id->validate()) {
     } else {
         $ticket = Verkauf::findById($id->getValue());
         if(isset($ticket)) {
-            $personId->setValue($personId->getValue());
-            $konzertId->setValue($konzertId->getValue());
-            $treuebonusId->setValue($treuebonusId->getValue());
-            $zahlungsstatus->setValue($zahlungsstatus->getValue());
+            $personId->setValue($ticket->getPersonId());
+            $konzertId->setValue($ticket->getKonzertId());
+            $treuebonusId->setValue($ticket->getTreueBonusId());
+            $zahlungsstatus->setValue($ticket->getZahlungsstatus());
         } else {
             redirect();
         }
@@ -29,7 +29,7 @@ if($id->validate()) {
 }
 $treueboni = Treuebonus::findAll();
 $konzerte = Konzert::findAll();
-$persone = Person::findAll();
+$personen = Person::findAll();
 
 $action = 'UpdateTicket?'.$id->getName().'='.$id->getValue();
 $submitValue = 'Speichern';

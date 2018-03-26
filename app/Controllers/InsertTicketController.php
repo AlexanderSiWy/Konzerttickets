@@ -17,7 +17,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $treueboni = Treuebonus::findAll();
 $konzerte = Konzert::findAll();
-$persone = Person::findAll();
+$personen = Person::findAll();
 
 $action = 'InsertTicket';
 $submitValue = 'Hinzufügen';
