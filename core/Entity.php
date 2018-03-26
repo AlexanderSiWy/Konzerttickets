@@ -28,6 +28,12 @@ abstract class Entity
         $statement->bindParam(":id", $id);
         return static::fetchSingle($statement);
     }
+    public static function findAllBy($name, $value) {
+        $pdo = connectToDatabase();
+        $statement = $pdo->prepare(static::getSelect()."WHERE ".$name." = :a");
+        $statement->bindParam(":a", $value);
+        return static::fetchArray($statement);
+    }
 
     public abstract function insert();
     public abstract function update();

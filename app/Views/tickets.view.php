@@ -1,3 +1,4 @@
+<a href="Tickets<?=$isShowAll?'':'?'.$showAll->getName()?>"><?=$isShowAll?'Zeige Offene':'Zeige Alle'?></a>
 <table>
     <thead>
     <tr>
