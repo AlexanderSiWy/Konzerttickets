@@ -30,6 +30,7 @@ abstract class Entity
     }
 
     public abstract function insert();
+    public abstract function update();
 
     public abstract function getId();
 

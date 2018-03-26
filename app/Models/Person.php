@@ -23,6 +23,16 @@ class Person extends Entity
         $statement->execute();
     }
 
+    public function update() {
+        $pdo = connectToDatabase();
+        $statement = $pdo->prepare('UPDATE '.self::getTableName().' SET name = :name, mail = :mail, tel = :tel WHERE id = :id');
+        $statement->bindParam(':name', $this->name);
+        $statement->bindParam(':mail', $this->mail);
+        $statement->bindParam(':tel', $this->tel);
+        $statement->bindParam(':id', $this->id);
+        $statement->execute();
+    }
+
     public static function getTableName()
     {
         return 'person';

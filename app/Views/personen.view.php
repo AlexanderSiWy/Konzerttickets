@@ -7,7 +7,7 @@
     <tbody>
     <?php foreach ($personen as $person):?>
     <tr>
-        <td><?=$person->getName()?></td><td><?=$person->getMail()?></td><td><?=$person->getTel()?></td>
+        <td><?=e($person->getName())?></td><td><?=e($person->getMail())?></td><td><?=e($person->getTel())?></td><td><a href="UpdatePerson?<?=$id->getName()?>=<?=$person->getId()?>">Bearbeiten...</a></td>
     </tr>
     <?php endforeach;?>
     </tbody>

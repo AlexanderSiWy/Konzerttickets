@@ -17,6 +17,14 @@ class Konzert extends Entity
         $statement->execute();
     }
 
+    public function update() {
+        $pdo = connectToDatabase();
+        $statement = $pdo->prepare('UPDATE '.self::getTableName().' SET artist = :artist WHERE id = :id');
+        $statement->bindParam(':artist', $this->artist);
+        $statement->bindParam(':id', $this->id);
+        $statement->execute();
+    }
+
     public static function getTableName()
     {
         return 'konzert';

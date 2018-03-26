@@ -85,24 +85,24 @@ class FormField
         $this->value = $value;
     }
 
-    public function loadValue() {
-        if($this->isSet()) {
-        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    public function loadValue($usePost = true) {
+        if($this->isSet($usePost)) {
+        if($usePost) {
             $this->value = trim($_POST[$this->name]);
-        } else if($_SERVER['REQUEST_METHOD'] === 'GET') {
+        } else {
             $this->value = trim($_GET[$this->name]);
         }
         } else {
             $this->value = '';
         }
     }
-    public function isSet() : bool {
-        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    public function isSet($usePost = true) : bool {
+        if($usePost) {
             return isset($_POST[$this->name]);
-        } else if($_SERVER['REQUEST_METHOD'] === 'GET') {
+        } else {
             return isset($_GET[$this->name]);
         }
-        return false;
     }
 
     /**

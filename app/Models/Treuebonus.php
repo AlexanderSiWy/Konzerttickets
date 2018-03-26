@@ -20,6 +20,15 @@ class Treuebonus extends Entity
         $statement->execute();
     }
 
+    public function update() {
+        $pdo = connectToDatabase();
+        $statement = $pdo->prepare('UPDATE '.self::getTableName().' rabatt = :rabatt, zahlungsfrist = :zahlungsfrist WHERE id = :id');
+        $statement->bindParam(':rabatt', $this->rabatt);
+        $statement->bindParam(':zahlungsfrist', $this->zahlungsfrist);
+        $statement->bindParam(':id', $this->id);
+        $statement->execute();
+    }
+
     public static function getTableName()
     {
         return 'treuebonus';
