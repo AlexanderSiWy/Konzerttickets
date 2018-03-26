@@ -59,6 +59,10 @@ class Treuebonus extends Entity
         $this->rabatt = $rabatt;
     }
 
+    public function getDescription() {
+        return $this->getRabatt().'% Rabatt';
+    }
+
     public function getZahlungsfrist()
     {
         return $this->zahlungsfrist;

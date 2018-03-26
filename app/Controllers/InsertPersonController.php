@@ -1,6 +1,5 @@
 <?php
 require 'app/Controllers/PersonForm.php';
-
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name->loadValue();
     $email->loadValue();

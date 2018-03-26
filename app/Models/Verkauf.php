@@ -99,6 +99,10 @@ class Verkauf extends Entity
         return Treuebonus::findById($this->getTreuebonusId());
     }
 
+    public static function zahlungsStatusDescription($value) {
+        return $value ? 'Bezahlt' : 'Offen';
+    }
+
     public function setTreuebonusId($treuebonusId): void
     {
         $this->treuebonusId = $treuebonusId;

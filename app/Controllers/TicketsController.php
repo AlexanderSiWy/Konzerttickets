@@ -1,3 +1,6 @@
 <?php
-$verkauf = Verkauf::findById(1);
-var_dump($verkauf->getTreuebonus());
+require 'app/Controllers/PersonForm.php';
+
+$tickets = Verkauf::findAll();
+
+require 'app/Views/tickets.view.php';
