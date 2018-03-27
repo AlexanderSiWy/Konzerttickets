@@ -42,6 +42,8 @@ class Verkauf extends Entity
     }
 
     public function getZahlbarBis() {
+        $zahlungsfrist = $this->getTreuebonus()->getZahlungsfrist();
+        return $this->getDatumAsDateTime()->add(new DateInterval('P'.$zahlungsfrist.'D'));
     }
 
     public static function getTableName()
@@ -124,6 +126,11 @@ class Verkauf extends Entity
     public function getDatum()
     {
         return $this->datum;
+    }
+
+    public function getDatumAsDateTime()
+    {
+        return DateTime::createFromFormat('Y-m-d', $this->datum);
     }
 
     public function setDatum($datum): void

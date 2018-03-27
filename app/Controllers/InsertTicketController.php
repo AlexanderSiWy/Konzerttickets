@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $zahlungsstatus->loadValue();
 
     if($personId->validate() & $konzertId->validate() & $treuebonusId->validate() & $zahlungsstatus->validate()) {
-        $ticket = new Verkauf($personId->getValue(), $konzertId->getValue(), $treuebonusId->getValue(), $zahlungsstatus->getValue(), formatDate());
+        $ticket = new Verkauf($personId->getValue(), $konzertId->getValue(), $treuebonusId->getValue(), $zahlungsstatus->getValue(), formatDateISO());
         $ticket->insert();
         header('Location: Tickets');
         exit(0);
@@ -17,7 +17,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 require 'app/Controllers/ticketViewPrepareController.php';
 
-$datum = formatDate();
+$datum = formatDateISO();
 
 $action = 'InsertTicket';
 $submitValue = 'Hinzufügen';

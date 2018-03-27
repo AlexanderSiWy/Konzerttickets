@@ -25,6 +25,10 @@ function post(string $key, $default = '')
     return $_POST[$key] ?? $default;
 }
 
+function formatDateISO($date = null) {
+    return date('Y-m-d', isset($date) ? $date->getTimestamp() : time());
+}
+
 function formatDate($date = null) {
-    return date('Y-m-d', $date ?? time());
+    return date('d.m.Y', isset($date) ? $date->getTimestamp() : time());
 }
