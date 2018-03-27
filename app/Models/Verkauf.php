@@ -40,6 +40,14 @@ class Verkauf extends Entity
         $statement->execute();
     }
 
+    public static function updateZahlungsstatus($id, $value) {
+        $pdo = connectToDatabase();
+        $statement = $pdo->prepare('UPDATE '.self::getTableName().' SET zahlungsstatus = :zahlungsstatus WHERE id = :id');
+        $statement->bindParam(':zahlungsstatus', $value);
+        $statement->bindParam(':id', $id);
+        $statement->execute();
+    }
+
     public function getZahlbarBis() {
         $zahlungsfrist = $this->getTreuebonus()->getZahlungsfrist();
         return $this->getDatumAsDateTime()->add(new DateInterval('P'.$zahlungsfrist.'D'));

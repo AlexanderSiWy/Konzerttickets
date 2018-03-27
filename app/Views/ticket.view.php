@@ -72,8 +72,8 @@
     </fieldset>
 
     <div>
-        <button type="reset">Zurücksetzen</button>
-        <button type="submit" ><?=$submitValue?></button>
+        <input type="reset" value="Zurücksetzen">
+        <input type="submit" value="<?=$submitValue?>">
     </div>
     <div>
         <p id="<?= $id->getName() ?>Message">

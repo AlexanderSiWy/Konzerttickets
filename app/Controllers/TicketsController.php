@@ -14,7 +14,7 @@ usort($tickets, function($a, $b) {
     $bd = $b->getZahlbarBis();
 
     if ($ad == $bd) {
-        return strcmp($a->getPerson()->getName(), $b->getPerson()->getName());
+        return 0;
     }
 
     return $ad < $bd ? -1 : 1;
