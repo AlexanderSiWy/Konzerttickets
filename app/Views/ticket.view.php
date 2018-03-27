@@ -67,7 +67,7 @@
             <label for="zahlbarBis">Zahlbar bis</label>
         </div>
         <div>
-            <input type="text" id="zahlbarBis" disabled>
+            <input type="text" data-datum="<?=$datum?>" id="zahlbarBis" disabled>
         </div>
     </fieldset>
 

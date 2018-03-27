@@ -3,6 +3,7 @@ var $email;
 var $tel;
 var $zahlbarbis;
 var $treuebonus;
+var datum;
 
 $(function () {
 $person = $('#person');
@@ -10,6 +11,7 @@ $email = $('#email');
 $tel = $('#telefon');
 $treuebonus = $('#treuebonus');
 $zahlbarbis = $('#zahlbarBis');
+datum = new Date($zahlbarbis.attr('data-datum'));
 
 setPersonInfo();
 setZahlbarBis();
@@ -37,7 +39,7 @@ function setZahlbarBis() {
     var $selected = $treuebonus.find('option:selected');
     var zahlungsfrist = parseInt($selected.attr('data-zahlungsfrist'));
 
-    var zahlbarBis = addDays(new Date(), zahlungsfrist);
+    var zahlbarBis = addDays(datum, zahlungsfrist);
     $zahlbarbis.val(formatDate(zahlbarBis));
 }
 

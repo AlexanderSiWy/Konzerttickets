@@ -24,3 +24,7 @@ function post(string $key, $default = '')
 {
     return $_POST[$key] ?? $default;
 }
+
+function formatDate($date = null) {
+    return date('Y-m-d', $date ?? time());
+}

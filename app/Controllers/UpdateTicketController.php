@@ -10,7 +10,7 @@ if($id->validate()) {
         $zahlungsstatus->loadValue();
 
         if ($personId->validate() & $konzertId->validate() & $treuebonusId->validate() & $zahlungsstatus->validate()) {
-            $ticket = new Verkauf($personId->getValue(), $konzertId->getValue(), $treuebonusId->getValue(), $zahlungsstatus->getValue(), date("Y-m-d"));
+            $ticket = new Verkauf($personId->getValue(), $konzertId->getValue(), $treuebonusId->getValue(), $zahlungsstatus->getValue(), formatDate());
             $ticket->setId($id->getValue());
             $ticket->update();
             redirect();
@@ -29,6 +29,8 @@ if($id->validate()) {
 }
 
 require 'app/Controllers/ticketViewPrepareController.php';
+
+$datum = $ticket->getDatum();
 
 $action = 'UpdateTicket?'.$id->getName().'='.$id->getValue();
 $submitValue = 'Speichern';
