@@ -27,9 +27,8 @@ if($id->validate()) {
         }
     }
 }
-$treueboni = Treuebonus::findAll();
-$konzerte = Konzert::findAll();
-$personen = Person::findAll();
+
+require 'app/Controllers/ticketViewPrepareController.php';
 
 $action = 'UpdateTicket?'.$id->getName().'='.$id->getValue();
 $submitValue = 'Speichern';

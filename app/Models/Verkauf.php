@@ -41,6 +41,9 @@ class Verkauf extends Entity
         $statement->execute();
     }
 
+    public function getZahlbarBis() {
+    }
+
     public static function getTableName()
     {
         return 'verkauf';

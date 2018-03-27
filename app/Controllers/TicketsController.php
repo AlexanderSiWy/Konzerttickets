@@ -6,7 +6,7 @@ $isShowAll = $showAll->isSet(false);
 if($isShowAll) {
     $tickets = Verkauf::findAll();
 } else {
-    $tickets = Verkauf::findAllBy('zahlungsstatus', false);
+    $tickets = Verkauf::findAllBy('zahlungsstatus', false, null);
 }
 
 require 'app/Views/tickets.view.php';

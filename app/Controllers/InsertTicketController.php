@@ -15,9 +15,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$treueboni = Treuebonus::findAll();
-$konzerte = Konzert::findAll();
-$personen = Person::findAll();
+require 'app/Controllers/ticketViewPrepareController.php';
 
 $action = 'InsertTicket';
 $submitValue = 'Hinzufügen';
