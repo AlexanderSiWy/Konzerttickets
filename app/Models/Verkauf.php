@@ -31,12 +31,11 @@ class Verkauf extends Entity
 
     public function update() {
         $pdo = connectToDatabase();
-        $statement = $pdo->prepare('UPDATE '.self::getTableName().' SET personId = :personId, konzertId = :konzertId, treuebonusId = :treuebonusId, zahlungsstatus = :zahlungsstatus, datum = :datum WHERE id = :id');
+        $statement = $pdo->prepare('UPDATE '.self::getTableName().' SET personId = :personId, konzertId = :konzertId, treuebonusId = :treuebonusId, zahlungsstatus = :zahlungsstatus WHERE id = :id');
         $statement->bindParam(':personId', $this->personId);
         $statement->bindParam(':konzertId', $this->konzertId);
         $statement->bindParam(':treuebonusId', $this->treuebonusId);
         $statement->bindParam(':zahlungsstatus', $this->zahlungsstatus);
-        $statement->bindParam(':datum', $this->datum);
         $statement->bindParam(':id', $this->id);
         $statement->execute();
     }
@@ -44,6 +43,10 @@ class Verkauf extends Entity
     public function getZahlbarBis() {
         $zahlungsfrist = $this->getTreuebonus()->getZahlungsfrist();
         return $this->getDatumAsDateTime()->add(new DateInterval('P'.$zahlungsfrist.'D'));
+    }
+
+    public function isOverDue() {
+        return $this->getZahlbarBis() > new DateTime();
     }
 
     public static function getTableName()

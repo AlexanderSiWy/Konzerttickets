@@ -10,7 +10,7 @@ if($id->validate()) {
         $zahlungsstatus->loadValue();
 
         if ($personId->validate() & $konzertId->validate() & $treuebonusId->validate() & $zahlungsstatus->validate()) {
-            $ticket = new Verkauf($personId->getValue(), $konzertId->getValue(), $treuebonusId->getValue(), $zahlungsstatus->getValue(), formatDateISO());
+            $ticket = new Verkauf($personId->getValue(), $konzertId->getValue(), $treuebonusId->getValue(), $zahlungsstatus->getValue());
             $ticket->setId($id->getValue());
             $ticket->update();
             redirect();
