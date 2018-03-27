@@ -1,7 +1,7 @@
-<table>
+<table class="table table-striped table-sm">
     <thead>
     <tr>
-        <td>Name</td><td>E-Mail</td><td>Telefonnummer</td>
+        <th>Name</th><th>E-Mail</th><th>Telefonnummer</th>
     </tr>
     </thead>
     <tbody>
@@ -12,5 +12,4 @@
     <?php endforeach;?>
     </tbody>
 </table>
-
 <a href="InsertPerson">Neu...</a>

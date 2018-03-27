@@ -1,3 +1,8 @@
 .payStatus {
     float:right;
 }
+
+table {
+    width: auto !important;
+    margin-left: 0px !important;
+}

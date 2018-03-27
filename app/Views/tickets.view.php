@@ -1,8 +1,8 @@
 <a href="Tickets<?=$isShowAll?'':'?'.$showAll->getName()?>"><?=$isShowAll?'Zeige Offene':'Zeige Alle'?></a>
-<table>
+<table class="table table-striped table-sm">
     <thead>
     <tr>
-        <td>Person</td><td>Konzert</td><td>Treuebonus</td><td>Zahlbar bis</td><td>Zahlungsstatus</td>
+        <th>Person</th><th>Konzert</th><th>Treuebonus</th><th>Zahlbar bis</th><th>Zahlungsstatus</th><th></th>
     </tr>
     </thead>
     <tbody>
@@ -13,5 +13,4 @@
     <?php endforeach;?>
     </tbody>
 </table>
-
 <a href="InsertTicket">Neu...</a>
