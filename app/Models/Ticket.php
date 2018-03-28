@@ -31,10 +31,9 @@ class Ticket extends Entity
 
     public function update() {
         $pdo = connectToDatabase();
-        $statement = $pdo->prepare('UPDATE '.self::getTableName().' SET personId = :personId, konzertId = :konzertId, treuebonusId = :treuebonusId, zahlungsstatus = :zahlungsstatus WHERE id = :id');
+        $statement = $pdo->prepare('UPDATE '.self::getTableName().' SET personId = :personId, konzertId = :konzertId, zahlungsstatus = :zahlungsstatus WHERE id = :id');
         $statement->bindParam(':personId', $this->personId);
         $statement->bindParam(':konzertId', $this->konzertId);
-        $statement->bindParam(':treuebonusId', $this->treuebonusId);
         $statement->bindParam(':zahlungsstatus', $this->zahlungsstatus);
         $statement->bindParam(':id', $this->id);
         $statement->execute();

@@ -6,11 +6,10 @@ if($id->validate()) {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $personId->loadValue();
         $konzertId->loadValue();
-        $treuebonusId->loadValue();
         $zahlungsstatus->loadValue();
 
-        if ($personId->validate() & $konzertId->validate() & $treuebonusId->validate() & $zahlungsstatus->validate()) {
-            $ticket = new Ticket($personId->getValue(), $konzertId->getValue(), $treuebonusId->getValue(), $zahlungsstatus->getValue());
+        if ($personId->validate() & $konzertId->validate() & $zahlungsstatus->validate()) {
+            $ticket = new Ticket($personId->getValue(), $konzertId->getValue(), null, $zahlungsstatus->getValue());
             $ticket->setId($id->getValue());
             $ticket->update();
             redirect();
@@ -31,6 +30,7 @@ if($id->validate()) {
 require 'app/Controllers/ticketViewPrepareController.php';
 
 $datum = formatDateISO($ticket->getDatumAsDateTime());
+$treuebonusAktiv = false;
 
 $action = 'UpdateTicket?'.$id->getName().'='.$id->getValue();
 $submitValue = 'Speichern';

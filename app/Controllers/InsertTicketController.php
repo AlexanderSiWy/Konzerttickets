@@ -18,6 +18,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 require 'app/Controllers/ticketViewPrepareController.php';
 
 $datum = formatDateISO();
+$treuebonusAktiv = true;
 
 $action = 'InsertTicket';
 $submitValue = 'Hinzufügen';

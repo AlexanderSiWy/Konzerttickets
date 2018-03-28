@@ -46,7 +46,7 @@
             <label for="treuebonus">Treuebonus *</label>
         </div>
         <div>
-            <select id="treuebonus" name="<?=$treuebonusId->getName()?>" onchange="setZahlbarBis();" required">
+            <select id="treuebonus" name="<?=$treuebonusId->getName()?>" onchange="setZahlbarBis();" required <?=$treuebonusAktiv ? '' : 'disabled'?>>
                 <?php foreach ($treueboni as $treuebonus):?>
                     <option value="<?=$treuebonus->getId()?>" data-zahlungsfrist="<?=e($treuebonus->getZahlungsfrist())?>" <?= $treuebonus->getId() == $treuebonusId->getValue() ? 'selected' : ''?>><?=e($treuebonus->getDescription())?></option>
                 <?php endforeach; ?>
