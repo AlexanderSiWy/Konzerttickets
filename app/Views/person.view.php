@@ -2,14 +2,14 @@
     <fieldset>
         <legend>Personalien</legend>
         <div>
-            <label for="name">Name</label>
+            <label for="name">Name *</label>
         </div>
         <div>
             <input type="text" id="name" name = "<?= $name->getName() ?>" value="<?= e($name->getValue())?>" placeholder="Max Muster" required />
             <p id="<?= $name->getName() ?>Message"><?= $name->getMessage() ?></p>
         </div>
         <div>
-            <label for="email">E-Mail</label>
+            <label for="email">E-Mail *</label>
         </div>
         <div>
             <input type="email" id="email" name="<?= $email->getName() ?>" value="<?= e($email->getValue())?>" placeholder="max.muster@gmail.com" required>

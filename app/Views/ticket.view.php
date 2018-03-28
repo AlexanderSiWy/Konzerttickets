@@ -2,7 +2,7 @@
     <fieldset>
         <legend>Personalien</legend>
         <div>
-            <label for="person">Person</label>
+            <label for="person">Person *</label>
         </div>
         <div>
             <select id="person" name="<?=$personId->getName()?>" onchange="setPersonInfo();" required">
@@ -32,7 +32,7 @@
     <fieldset>
         <legend>Ticket</legend>
         <div>
-            <label for="konzert" >Konzert</label>
+            <label for="konzert" >Konzert *</label>
         </div>
         <div>
             <select id="konzert" name="<?=$konzertId->getName()?>" required">
@@ -43,7 +43,7 @@
             <p id="<?= $konzertId->getName() ?>Message"><?= $konzertId->getMessage() ?></p>
         </div>
         <div>
-            <label for="treuebonus">Treuebonus</label>
+            <label for="treuebonus">Treuebonus *</label>
         </div>
         <div>
             <select id="treuebonus" name="<?=$treuebonusId->getName()?>" onchange="setZahlbarBis();" required">
@@ -54,7 +54,7 @@
             <p id="<?= $treuebonusId->getName() ?>Message"><?= $treuebonusId->getMessage() ?></p>
         </div>
         <div>
-            <label for="zahlungsstatus">Zahlungsstatus</label>
+            <label for="zahlungsstatus">Zahlungsstatus *</label>
         </div>
         <div>
             <select id="zahlungsstatus" name="<?=$zahlungsstatus->getName()?>" required>
