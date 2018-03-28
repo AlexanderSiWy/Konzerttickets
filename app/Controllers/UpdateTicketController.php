@@ -10,13 +10,13 @@ if($id->validate()) {
         $zahlungsstatus->loadValue();
 
         if ($personId->validate() & $konzertId->validate() & $treuebonusId->validate() & $zahlungsstatus->validate()) {
-            $ticket = new Verkauf($personId->getValue(), $konzertId->getValue(), $treuebonusId->getValue(), $zahlungsstatus->getValue());
+            $ticket = new Ticket($personId->getValue(), $konzertId->getValue(), $treuebonusId->getValue(), $zahlungsstatus->getValue());
             $ticket->setId($id->getValue());
             $ticket->update();
             redirect();
         }
     } else {
-        $ticket = Verkauf::findById($id->getValue());
+        $ticket = Ticket::findById($id->getValue());
         if(isset($ticket)) {
             $personId->setValue($ticket->getPersonId());
             $konzertId->setValue($ticket->getKonzertId());

@@ -58,8 +58,8 @@
         </div>
         <div>
             <select id="zahlungsstatus" name="<?=$zahlungsstatus->getName()?>" required>
-                <option value="0" <?= $zahlungsstatus->getValue() ? '' : 'selected'?>><?= Verkauf::zahlungsStatusDescription(false)?></option>
-                <option value="1" <?= $zahlungsstatus->getValue() ? 'selected' : ''?>><?= Verkauf::zahlungsStatusDescription(true)?></option>
+                <option value="0" <?= $zahlungsstatus->getValue() ? '' : 'selected'?>><?= Ticket::zahlungsStatusDescription(false)?></option>
+                <option value="1" <?= $zahlungsstatus->getValue() ? 'selected' : ''?>><?= Ticket::zahlungsStatusDescription(true)?></option>
             </select>
             <p id="<?= $zahlungsstatus->getName() ?>Message"><?= $zahlungsstatus->getMessage() ?></p>
         </div>

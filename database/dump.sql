@@ -106,7 +106,7 @@ ALTER TABLE konzert
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 
-CREATE TABLE verkauf(
+CREATE TABLE ticket(
 id integer PRIMARY KEY AUTO_INCREMENT,
 personId integer,
 konzertId integer,
@@ -120,7 +120,7 @@ CREATE TABLE person(
     id integer PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255),
     mail VARCHAR(255),
-    tel VARCHAR(15)
+    tel VARCHAR(20)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE treuebonus(
@@ -131,11 +131,11 @@ CREATE TABLE treuebonus(
 
 INSERT INTO treuebonus (rabatt, zahlungsfrist) VALUES (0,30),(5,20),(10,15),(15,10);
 
-ALTER TABLE verkauf
+ALTER TABLE ticket
 ADD FOREIGN KEY (personId) REFERENCES person(id);
 
-ALTER TABLE verkauf
+ALTER TABLE ticket
 ADD FOREIGN KEY (konzertId) REFERENCES konzert(id);
 
-ALTER TABLE verkauf
+ALTER TABLE ticket
 ADD FOREIGN KEY (treuebonusId) REFERENCES treuebonus(id);

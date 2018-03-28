@@ -1,6 +1,6 @@
 <?php
 
-class Verkauf extends Entity
+class Ticket extends Entity
 {
     private $id;
     private $personId;
@@ -59,12 +59,12 @@ class Verkauf extends Entity
 
     public static function getTableName()
     {
-        return 'verkauf';
+        return 'ticket';
     }
 
     public static function getModel()
     {
-        return 'Verkauf';
+        return 'Ticket';
     }
 
     public function getId()

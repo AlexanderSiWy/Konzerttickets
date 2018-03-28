@@ -10,7 +10,7 @@ require 'core/Entity.php';
 require 'app/Models/Person.php';
 require 'app/Models/Konzert.php';
 require 'app/Models/Treuebonus.php';
-require 'app/Models/Verkauf.php';
+require 'app/Models/Ticket.php';
 
 require 'core/Form/Validation.php';
 require 'core/Form/FormField.php';

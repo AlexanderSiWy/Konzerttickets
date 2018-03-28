@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $zahlungsstatus->loadValue();
 
     if($personId->validate() & $konzertId->validate() & $treuebonusId->validate() & $zahlungsstatus->validate()) {
-        $ticket = new Verkauf($personId->getValue(), $konzertId->getValue(), $treuebonusId->getValue(), $zahlungsstatus->getValue(), formatDateISO());
+        $ticket = new Ticket($personId->getValue(), $konzertId->getValue(), $treuebonusId->getValue(), $zahlungsstatus->getValue(), formatDateISO());
         $ticket->insert();
         header('Location: Tickets');
         exit(0);
