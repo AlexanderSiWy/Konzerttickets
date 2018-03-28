@@ -1,4 +1,4 @@
-<form action="<?=$action?>" data-validate="ValidateTicket" method="post" >
+<form action="<?=$action?>" data-validate="ValidateTicket?action=<?=$action?>" method="post" >
     <fieldset>
         <legend>Personalien</legend>
         <div>
