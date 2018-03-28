@@ -14,7 +14,7 @@
 </head>
 <body class="w-100 h-100">
 <?php require 'app/Controllers/MenuController.php' ?>
-<div class="col-12">
+<div class="center">
     <?php require $bodyController ?>
 </div>
 </body>

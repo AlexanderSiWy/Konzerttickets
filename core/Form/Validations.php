@@ -1,6 +1,6 @@
 <?php
 $emailValidation = new RegexValidation('@', 'Keine gültige Email-Adresse');
-$telefonValidation = new RegexValidation('^[\d \+\/\-\)\(]{10,15}$', 'Keine gültige Telefonnummer');
+$telefonValidation = new RegexValidation('^[\d \+\/\-\)\(]+$', 'Keine gültige Telefonnummer');
 $isBoolValidation = new RegexValidation('^[10]$', 'Keine gültiger Wert');
 
 $personExistsValidation = new ExistsValidation('Person', 'Die Person existiert nicht');

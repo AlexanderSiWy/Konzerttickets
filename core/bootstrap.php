@@ -16,4 +16,5 @@ require 'core/Form/Validation.php';
 require 'core/Form/FormField.php';
 require 'core/Form/RegexValidation.php';
 require 'core/Form/ExistsValidation.php';
+require 'core/Form/LengthValidation.php';
 require 'core/Form/Validations.php';
