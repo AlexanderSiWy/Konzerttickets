@@ -46,7 +46,7 @@ class Route
     /**
      * @return bool
      */
-    public function isStandalone(): bool
+    public function isStandalone()
     {
         return $this->standalone;
     }
@@ -54,7 +54,7 @@ class Route
     /**
      * @param bool $standalone
      */
-    public function setStandalone(bool $standalone): void
+    public function setStandalone(bool $standalone)
     {
         $this->standalone = $standalone;
     }

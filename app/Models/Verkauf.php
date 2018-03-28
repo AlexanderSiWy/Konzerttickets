@@ -72,7 +72,7 @@ class Verkauf extends Entity
         return $this->id;
     }
 
-    public function setId($id): void
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -86,7 +86,7 @@ class Verkauf extends Entity
         return Person::findById($this->getPersonId());
     }
 
-    public function setPersonId($personId): void
+    public function setPersonId($personId)
     {
         $this->personId = $personId;
     }
@@ -101,7 +101,7 @@ class Verkauf extends Entity
         return Konzert::findById($this->getKonzertId());
     }
 
-    public function setKonzertId($konzertId): void
+    public function setKonzertId($konzertId)
     {
         $this->konzertId = $konzertId;
     }
@@ -119,7 +119,7 @@ class Verkauf extends Entity
         return $value ? 'Bezahlt' : 'Offen';
     }
 
-    public function setTreuebonusId($treuebonusId): void
+    public function setTreuebonusId($treuebonusId)
     {
         $this->treuebonusId = $treuebonusId;
     }
@@ -129,7 +129,7 @@ class Verkauf extends Entity
         return $this->zahlungsstatus;
     }
 
-    public function setZahlungsstatus($zahlungsstatus): void
+    public function setZahlungsstatus($zahlungsstatus)
     {
         $this->zahlungsstatus = $zahlungsstatus;
     }
@@ -144,7 +144,7 @@ class Verkauf extends Entity
         return DateTime::createFromFormat('Y-m-d', $this->datum);
     }
 
-    public function setDatum($datum): void
+    public function setDatum($datum)
     {
         $this->datum = $datum;
     }
