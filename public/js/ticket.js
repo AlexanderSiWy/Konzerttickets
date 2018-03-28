@@ -6,14 +6,14 @@ var $treuebonus;
 var datum;
 
 $(function () {
-    $person = $('#person');
-    $email = $('#email');
-    $tel = $('#telefon');
-    $treuebonus = $('#treuebonus');
-    $zahlbarbis = $('#zahlbarBis');
-    datum = new Date($zahlbarbis.attr('data-datum'));
+$person = $('#person');
+$email = $('#email');
+$tel = $('#telefon');
+$treuebonus = $('#treuebonus');
+$zahlbarbis = $('#zahlbarBis');
+datum = new Date($zahlbarbis.attr('data-datum'));
 
-    setCalculatedValues();
+setCalculatedValues();
 });
 
 function setCalculatedValues() {
