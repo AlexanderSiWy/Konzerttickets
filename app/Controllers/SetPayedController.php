@@ -2,7 +2,7 @@
 $setPayedIds = $_POST['setPayed'];
 
 foreach ($setPayedIds as $id) {
-    Verkauf::updateZahlungsstatus($id, 1);
+    Ticket::updateZahlungsstatus($id, 1);
 }
 
 header('Location: Tickets');

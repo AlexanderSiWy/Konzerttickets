@@ -1,13 +1,13 @@
-<form action="<?=$action?>" data-validate="ValidateTicket" method="post" >
+<form action="<?=$action?>" data-validate="ValidateTicket?action=<?=$action?>" method="post" >
     <fieldset>
         <legend>Personalien</legend>
         <div>
-            <label for="person">Person</label>
+            <label for="person">Person *</label>
         </div>
         <div>
             <select id="person" name="<?=$personId->getName()?>" onchange="setPersonInfo();" required">
             <?php foreach ($personen as $person):?>
-                <option value="<?=$person->getId()?>" data-email="<?=$person->getMail()?>" data-tel="<?=$person->getTel()?>"<?= $person->getId() == $personId->getValue() ? 'selected' : ''?>><?=$person->getName()?></option>
+                <option value="<?=$person->getId()?>" data-email="<?=e($person->getMail())?>" data-tel="<?=e($person->getTel())?>"<?= $person->getId() == $personId->getValue() ? 'selected' : ''?>><?=e($person->getName())?></option>
             <?php endforeach; ?>
             </select>
             <input type="button" value="+" onclick="newPerson();" />
@@ -32,34 +32,34 @@
     <fieldset>
         <legend>Ticket</legend>
         <div>
-            <label for="konzert" >Konzert</label>
+            <label for="konzert" >Konzert *</label>
         </div>
         <div>
             <select id="konzert" name="<?=$konzertId->getName()?>" required">
             <?php foreach ($konzerte as $konzert):?>
-                <option value="<?=$konzert->getId()?>" <?= $konzert->getId() == $konzertId->getValue() ? 'selected' : ''?>><?=$konzert->getArtist()?></option>
+                <option value="<?=$konzert->getId()?>" <?= $konzert->getId() == $konzertId->getValue() ? 'selected' : ''?>><?=e($konzert->getArtist())?></option>
             <?php endforeach; ?>
             </select>
             <p id="<?= $konzertId->getName() ?>Message"><?= $konzertId->getMessage() ?></p>
         </div>
         <div>
-            <label for="treuebonus">Treuebonus</label>
+            <label for="treuebonus">Treuebonus *</label>
         </div>
         <div>
-            <select id="treuebonus" name="<?=$treuebonusId->getName()?>" onchange="setZahlbarBis();" required">
+            <select id="treuebonus" name="<?=$treuebonusId->getName()?>" onchange="setZahlbarBis();" required <?=$treuebonusAktiv ? '' : 'disabled'?>>
                 <?php foreach ($treueboni as $treuebonus):?>
-                    <option value="<?=$treuebonus->getId()?>" data-zahlungsfrist="<?=$treuebonus->getZahlungsfrist()?>" <?= $treuebonus->getId() == $treuebonusId->getValue() ? 'selected' : ''?>><?=$treuebonus->getDescription()?></option>
+                    <option value="<?=$treuebonus->getId()?>" data-zahlungsfrist="<?=e($treuebonus->getZahlungsfrist())?>" <?= $treuebonus->getId() == $treuebonusId->getValue() ? 'selected' : ''?>><?=e($treuebonus->getDescription())?></option>
                 <?php endforeach; ?>
             </select>
             <p id="<?= $treuebonusId->getName() ?>Message"><?= $treuebonusId->getMessage() ?></p>
         </div>
         <div>
-            <label for="zahlungsstatus">Zahlungsstatus</label>
+            <label for="zahlungsstatus">Zahlungsstatus *</label>
         </div>
         <div>
             <select id="zahlungsstatus" name="<?=$zahlungsstatus->getName()?>" required>
-                <option value="0" <?= $zahlungsstatus->getValue() ? '' : 'selected'?>><?= Verkauf::zahlungsStatusDescription(false)?></option>
-                <option value="1" <?= $zahlungsstatus->getValue() ? 'selected' : ''?>><?= Verkauf::zahlungsStatusDescription(true)?></option>
+                <option value="0" <?= $zahlungsstatus->getValue() ? '' : 'selected'?>><?= Ticket::zahlungsStatusDescription(false)?></option>
+                <option value="1" <?= $zahlungsstatus->getValue() ? 'selected' : ''?>><?= Ticket::zahlungsStatusDescription(true)?></option>
             </select>
             <p id="<?= $zahlungsstatus->getName() ?>Message"><?= $zahlungsstatus->getMessage() ?></p>
         </div>
@@ -67,7 +67,7 @@
             <label for="zahlbarBis">Zahlbar bis</label>
         </div>
         <div>
-            <input type="text" data-datum="<?=$datum?>" id="zahlbarBis" disabled>
+            <input type="text" data-datum="<?=e($datum)?>" id="zahlbarBis" disabled>
         </div>
     </fieldset>
 

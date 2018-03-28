@@ -64,7 +64,7 @@ class FormField implements JsonSerializable
     /**
      * @param mixed $name
      */
-    public function setName($name): void
+    public function setName($name)
     {
         $this->name = $name;
     }
@@ -80,7 +80,7 @@ class FormField implements JsonSerializable
     /**
      * @param mixed $value
      */
-    public function setValue($value): void
+    public function setValue($value)
     {
         $this->value = $value;
     }
@@ -108,7 +108,7 @@ class FormField implements JsonSerializable
     /**
      * @return bool
      */
-    public function isRequired(): bool
+    public function isRequired()
     {
         return $this->required;
     }
@@ -116,12 +116,12 @@ class FormField implements JsonSerializable
     /**
      * @param bool $required
      */
-    public function setRequired(bool $required): void
+    public function setRequired(bool $required)
     {
         $this->required = $required;
     }
 
-    public function isValid(): bool
+    public function isValid()
     {
         return $this->valid;
     }
@@ -129,7 +129,7 @@ class FormField implements JsonSerializable
     /**
      * @param bool $valid
      */
-    public function setValid(bool $valid): void
+    public function setValid(bool $valid)
     {
         $this->valid = $valid;
     }
@@ -137,7 +137,7 @@ class FormField implements JsonSerializable
     /**
      * @return array
      */
-    public function getValidations(): array
+    public function getValidations()
     {
         return $this->validations;
     }
@@ -145,7 +145,7 @@ class FormField implements JsonSerializable
     /**
      * @param array $validations
      */
-    public function setValidations(array $validations): void
+    public function setValidations(array $validations)
     {
         $this->validations = $validations;
     }
@@ -153,7 +153,7 @@ class FormField implements JsonSerializable
     /**
      * @return string
      */
-    public function getMessage(): string
+    public function getMessage()
     {
         return $this->message;
     }
@@ -161,7 +161,7 @@ class FormField implements JsonSerializable
     /**
      * @param string $message
      */
-    public function setMessage(string $message): void
+    public function setMessage(string $message)
     {
         $this->message = $message;
     }

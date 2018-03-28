@@ -9,12 +9,12 @@
     <tbody>
     <?php foreach ($tickets as $ticket):?>
         <tr>
-            <td><input type="checkbox" name="setPayed[]" value="<?=$ticket->getId()?>"></td>
+            <td><input type="checkbox" name="setPayed[]" value="<?=$ticket->getId()?>" <?=$ticket->getZahlungsstatus() ? 'disabled' : ''?>></td>
             <td><?=e($ticket->getPerson()->getName())?></td>
             <td><?=e($ticket->getKonzert()->getArtist())?></td>
             <td><?=e($ticket->getTreuebonus()->getDescription())?></td>
             <td><?=e(formatDate($ticket->getZahlbarBis()))?></td>
-            <td><?=e(Verkauf::zahlungsStatusDescription($ticket->getZahlungsstatus()))?><span class="payStatus"><?=$ticket->getZahlungsstatus() ? '✓' : ($ticket->isOverDue() ? '⏳' : '⌛')?></span></td>
+            <td><?=e(Ticket::zahlungsStatusDescription($ticket->getZahlungsstatus()))?><span class="payStatus"><?=$ticket->getZahlungsstatus() ? '✓' : ($ticket->isOverDue() ? '⏳' : '⌛')?></span></td>
             <td><a href="UpdateTicket?<?=$id->getName()?>=<?=$ticket->getId()?>">Bearbeiten</a></td>
         </tr>
     <?php endforeach;?>

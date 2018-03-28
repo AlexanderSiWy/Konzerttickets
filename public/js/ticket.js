@@ -13,9 +13,13 @@ $treuebonus = $('#treuebonus');
 $zahlbarbis = $('#zahlbarBis');
 datum = new Date($zahlbarbis.attr('data-datum'));
 
-setPersonInfo();
-setZahlbarBis();
+setCalculatedValues();
 });
+
+function setCalculatedValues() {
+    setPersonInfo();
+    setZahlbarBis();
+}
 
 function newPerson() {
     window.location.href = "InsertPerson";

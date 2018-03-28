@@ -1,6 +1,6 @@
 <?php
 
-class Verkauf extends Entity
+class Ticket extends Entity
 {
     private $id;
     private $personId;
@@ -31,10 +31,9 @@ class Verkauf extends Entity
 
     public function update() {
         $pdo = connectToDatabase();
-        $statement = $pdo->prepare('UPDATE '.self::getTableName().' SET personId = :personId, konzertId = :konzertId, treuebonusId = :treuebonusId, zahlungsstatus = :zahlungsstatus WHERE id = :id');
+        $statement = $pdo->prepare('UPDATE '.self::getTableName().' SET personId = :personId, konzertId = :konzertId, zahlungsstatus = :zahlungsstatus WHERE id = :id');
         $statement->bindParam(':personId', $this->personId);
         $statement->bindParam(':konzertId', $this->konzertId);
-        $statement->bindParam(':treuebonusId', $this->treuebonusId);
         $statement->bindParam(':zahlungsstatus', $this->zahlungsstatus);
         $statement->bindParam(':id', $this->id);
         $statement->execute();
@@ -59,12 +58,12 @@ class Verkauf extends Entity
 
     public static function getTableName()
     {
-        return 'verkauf';
+        return 'ticket';
     }
 
     public static function getModel()
     {
-        return 'Verkauf';
+        return 'Ticket';
     }
 
     public function getId()
@@ -72,7 +71,7 @@ class Verkauf extends Entity
         return $this->id;
     }
 
-    public function setId($id): void
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -86,7 +85,7 @@ class Verkauf extends Entity
         return Person::findById($this->getPersonId());
     }
 
-    public function setPersonId($personId): void
+    public function setPersonId($personId)
     {
         $this->personId = $personId;
     }
@@ -101,7 +100,7 @@ class Verkauf extends Entity
         return Konzert::findById($this->getKonzertId());
     }
 
-    public function setKonzertId($konzertId): void
+    public function setKonzertId($konzertId)
     {
         $this->konzertId = $konzertId;
     }
@@ -119,7 +118,7 @@ class Verkauf extends Entity
         return $value ? 'Bezahlt' : 'Offen';
     }
 
-    public function setTreuebonusId($treuebonusId): void
+    public function setTreuebonusId($treuebonusId)
     {
         $this->treuebonusId = $treuebonusId;
     }
@@ -129,7 +128,7 @@ class Verkauf extends Entity
         return $this->zahlungsstatus;
     }
 
-    public function setZahlungsstatus($zahlungsstatus): void
+    public function setZahlungsstatus($zahlungsstatus)
     {
         $this->zahlungsstatus = $zahlungsstatus;
     }
@@ -144,7 +143,7 @@ class Verkauf extends Entity
         return DateTime::createFromFormat('Y-m-d', $this->datum);
     }
 
-    public function setDatum($datum): void
+    public function setDatum($datum)
     {
         $this->datum = $datum;
     }

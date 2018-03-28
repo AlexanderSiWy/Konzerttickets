@@ -32,7 +32,7 @@ private $regex;
     /**
      * @param mixed $regex
      */
-    public function setRegex($regex): void
+    public function setRegex($regex)
     {
         $this->regex = $regex;
     }

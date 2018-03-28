@@ -26,7 +26,7 @@ abstract class Validation
     /**
      * @param mixed $message
      */
-    public function setMessage($message): void
+    public function setMessage($message)
     {
         $this->message = $message;
     }
