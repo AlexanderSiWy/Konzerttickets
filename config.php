@@ -1,7 +1,7 @@
 <?php
 const CONFIG =[
     "databaseHost" => "localhost",
-    "databaseName" => "konzerttickets",
+    "databaseName" => "kurseictbz_30712",
     "databaseUser" => "root",
     "databasePassword" => "",
     "databaseDumpFileName" => "database/db.sql",
